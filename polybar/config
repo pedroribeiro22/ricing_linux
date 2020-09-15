@@ -54,7 +54,7 @@ font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 font-3 = Font Awesome 5 Brands:pixelsize=10;0
 
 modules-left = i3 xwindow
-modules-right = pacman-packages weather volume cpu-temperature memory wifi time
+modules-right = pacman-packages cpu cpu-temperature memory volume weather time
 
 tray-position = right
 tray-padding = 1
@@ -114,23 +114,39 @@ format-mounted = <label-mounted>
 label-mounted = 💽 %free%
 
 [module/i3]
-
 type = internal/i3
 
-enable-scroll = true
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+enable-click = true
+enable-scroll = false
+wrapping-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-background = #e60053
+
 label-focused = %name%
 label-focused-background = ${colors.background-wm}
 label-focused-underline = ${colors.primary}
 label-focused-padding = 1
-lable-unfocused-padding = 1
 
-label-urgent = %name%!
-lable-urgent-background = ${colors.alert}
+label-unfocused = %name%
+label-unfocused-foreground = #cccccccc
+label-unfocused-padding = 1
+
+label-visible = %name%
+label-visible-foreground = #cccccccc
+label-visible-padding = 1
+
+label-urgent = %index% %name%
+label-urgent-foreground = #ffffff
+label-urgent-background = #bd2c40
 label-urgent-padding = 1
-
-label-empty = %name%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 1
 
 format-underline =
 format-background =
@@ -181,3 +197,40 @@ type = custom/script
 exec = date '+%d/%m/%Y %H:%M:%S'
 label = "%output%"
 interval = 1
+
+[module/volume]
+
+type = internal/pulseaudio
+sink = @DEFAULT_SINK@
+use-ui-max = true
+interval = 5
+format-volume = <ramp-volume> <label-volume>
+;format-muted = <label-muted>
+;label-volume = %percentage%%
+label-muted = 🔇 Muted
+label-muted-foreground = #666
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = true
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = #44
+
+[module/cpu]
+
+type = internal/cpu
+interval = 10
+label = 💻 %percentage%%
