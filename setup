@@ -1,0 +1,46 @@
+#!/bin/env sh
+
+echo "Installing PKG packages\n"
+
+# Comando que faz isto
+
+echo "Installing AUR packages\n"
+
+# Comando que faz isto
+
+echo "Configuring ASDF programming language managment\n"
+
+./asdf/install.sh
+
+echo "Configuring Alacritty terminal emulator\n"
+
+./alacritty/install.sh
+
+echo "Installig i3 windows manager config\n"
+
+./i3wm/install.sh
+
+echo "Installing Git Verson Control personal configurations"
+
+./git/install.sh
+
+echo "Installing Ranger file explorer configuration"
+
+./ranger/install.sh
+
+echo "Installing Rofi application launcher configuration"
+
+./rofi/install.sh
+
+echo "Install Polybar configuration"
+
+./polybar/install.sh
+
+echo "Installinh ZSH configurations"
+
+./zsh/install.sh
+
+echo "We are now going to clone the necessary fonts"
+
+[! -d $HOME/.fonts] && mkdir $HOME/.fonts
+git clone blablabla

@@ -1,0 +1,183 @@
+[colors]
+background = #1d1f21
+background-wm = #444444
+background-alt = #2D2D2D
+foreground = #D8DEE9
+foreground-alt = #555555
+primary = #268BD2
+alert = #ED0B0B
+
+[settings]
+format-foreground =
+format-underline = ${colors.primary}
+format-background = ${colors.background-alt}
+format-padding = 1
+format-overline =
+format-margin = 0
+format-offset =
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/top]
+monitor = ${env:MONITOR:eDP1}
+monitor-fallback =
+monitor-strict = false
+monitor-exact = true
+override-redirect = false
+wm-restack = i3
+enable-ipc = true
+fixed-center = false
+bottom = false
+separator =
+
+width = 100%
+height = 32
+offset-x = 0
+offset-y = 0
+radius = 0.0
+
+underline_size = 3
+overline_size = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+module-margin-left = 0
+module-margin-right = 1
+
+font-0 = JetBrainsMonoMedium:pixelsize=10;
+font-1 = Font Awesome 5 Free:pixelsize=10;0
+font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
+font-3 = Font Awesome 5 Brands:pixelsize=10;0
+
+modules-left = i3 xwindow
+modules-right = pacman-packages weather volume cpu-temperature memory wifi time
+
+tray-position = right
+tray-padding = 1
+tray-background = ${colors.background-alt}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-scale = 1.0
+
+cursor-click = pointer
+cursor-scroll = default
+
+line-size = 3
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+format-underline =
+format-background =
+format-padding =
+
+[module/filesystem]
+type = internal/fs
+
+; Mountpoints to display
+mount-0 = /home
+
+; Seconds to sleep between updates
+; Default: 30
+interval = 10
+
+; Display fixed precision values
+; Default: false
+fixed-values = true
+
+; Spacing between entries
+; Default: 2
+spacing = 4
+
+; Available tags:
+;   <label-mounted> (default)
+;   <bar-free>
+;   <bar-used>
+;   <ramp-capacity>
+format-mounted = <label-mounted>
+
+; Available tokens:
+;   %mountpoint%
+;   %type%
+;   %fsname%
+;   %percentage_free%
+;   %percentage_used%
+;   %total%
+;   %free%
+;   %used%
+; Default: %mountpoint% %percentage_free%%
+label-mounted = 💽 %free%
+
+[module/i3]
+
+type = internal/i3
+
+enable-scroll = true
+label-focused = %name%
+label-focused-background = ${colors.background-wm}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 1
+lable-unfocused-padding = 1
+
+label-urgent = %name%!
+lable-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+
+format-underline =
+format-background =
+format-padding =
+
+label-separator = |
+
+[module/pacman-packages]
+type = custom/ipc
+hook-0 = sudo pacman -Qu | wc -l
+format-prefix = "📦 "
+click-left = $HOME/.spells/updatepackages
+initial = 1
+
+[module/memory]
+type = custom/script
+exec = $HOME/.spells/i3memory
+label = "%output%"
+click-left = alacritty -e htop &
+interval = 10
+format-prefix = "🧠 "
+
+[module/cpu-usage]
+type = custom/script
+exec = $HOME/.spells/polycpu
+label = "%output%"
+click-left = alacritty -e htop &
+interval = 10
+format-prefix = "💻 "
+
+
+[module/cpu-temperature]
+type = custom/script
+exec = $HOME/.spells/polytempamd
+label = "%output%"
+format-prefix="🔥 "
+interval = 10
+
+[module/weather]
+type = custom/script
+exec = $HOME/.spells/i3weather
+label = "%output%"
+click-left = alacritty -e w3m wttr.in/Adelaide &
+interval = 1800
+
+[module/time]
+type = custom/script
+exec = date '+%d/%m/%Y %H:%M:%S'
+label = "%output%"
+interval = 1
