@@ -2,6 +2,6 @@
 
 path=$(pwd)
 
-[ -d $HOME/.config/alacritty ] && rm -rf $HOME/.config/alacritty
-ln -sf $path/alacritty $HOME/.config/alacritty
+[ ! -d $HOME/.config/alacritty ] && mkdir $HOME/.config/alacritty
+ln -sf ~/.dotfiles/alacritty/alacritty.yml $HOME/.config/alacritty.yml
 
