@@ -54,7 +54,7 @@ font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 font-3 = Font Awesome 5 Brands:pixelsize=10;0
 
 modules-left = i3 xwindow
-modules-right = pacman-packages cpu cpu-temperature memory volume weather time
+modules-right = pacman-packages cpu cpu-temperature memory volume weather battery time
 
 tray-position = right
 tray-padding = 1
@@ -158,12 +158,12 @@ label-separator = |
 type = custom/ipc
 hook-0 = sudo pacman -Qu | wc -l
 format-prefix = "📦 "
-click-left = $HOME/.spells/updatepackages
+click-left = updatepackages
 initial = 1
 
 [module/memory]
 type = custom/script
-exec = $HOME/.spells/i3memory
+exec = i3memory
 label = "%output%"
 click-left = alacritty -e htop &
 interval = 10
@@ -171,7 +171,7 @@ format-prefix = "🧠 "
 
 [module/cpu-usage]
 type = custom/script
-exec = $HOME/.spells/polycpu
+exec = polycpu
 label = "%output%"
 click-left = alacritty -e htop &
 interval = 10
@@ -179,15 +179,19 @@ format-prefix = "💻 "
 
 
 [module/cpu-temperature]
-type = custom/script
-exec = $HOME/.spells/polytempamd
-label = "%output%"
-format-prefix="🔥 "
-interval = 10
+type = internal/temperature
+interval = 2
+thermal-zone = 0
+warn-temperature = 60
+format = <label>
+format-warn = <label-warn>
+label = 🔥 %temperature-c%
+label-warn = 🔥 %temperature-c%
+label-warn-foreground = #f00
 
 [module/weather]
 type = custom/script
-exec = $HOME/.spells/i3weather
+exec = i3weather
 label = "%output%"
 click-left = alacritty -e w3m wttr.in/Adelaide &
 interval = 1800
@@ -230,7 +234,15 @@ bar-volume-empty-font = 2
 bar-volume-empty-foreground = #44
 
 [module/cpu]
-
 type = internal/cpu
 interval = 10
 label = 💻 %percentage%%
+
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = ADP1
+poll-interval = 5
+format = <label>
+label = "🔋 %percentage%"
