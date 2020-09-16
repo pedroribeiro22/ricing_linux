@@ -56,7 +56,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 
 # terminal transparency
-exec picom -b --experimental-backends
+exec xcompmgr -n
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart; exec "~/.dotfiles/utilities/downloads_tidier"
