@@ -112,6 +112,13 @@ sudo pacman -Syu rofi
 mkdir -p $HOME/.config/rofi
 ln -sfT $HOME/.dotfiles/config/rofi/config $HOME/.config/rofi/config
 
+# VSCodium
+
+[ ! -d $HOME/.config/VSCodium ] && mkdir -p $HOME/.config/VSCodium/User
+[ ! -d $HOME/.config/VSCodium/User ] && mkdir -p $HOME/.config/VSCodium/User
+ln -sfT $HOME/.dotfiles/config/VSCodium/keybindings.json $HOME/.config/VSCodium/User/keybindings.json
+ln -sfT $HOME/.dotfiles/config/VSCodium/settings.json $HOME/.config/VSCodium/User/settings.json
+
 # ZSH
 echo "Installing ZSH configurations...\n"
 
