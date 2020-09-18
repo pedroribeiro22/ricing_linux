@@ -1,0 +1,16 @@
+#!/bin/bash
+
+export ARCH_SETUP=(
+    nvidia
+    xorg
+    xorg-xinit
+    nitrogen
+    picom
+    firefox-developer-edition
+    network-manager-applet
+)
+
+for package in "${ARCH_SETUP[@]}"; do
+    echo "Installing $package ..."
+    sudo pacman -S $package --needed --noconfirm
+done

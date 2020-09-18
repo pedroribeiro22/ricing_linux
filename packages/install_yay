@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Clone YAY repository
+echo "Cloning Yay repository..."
+git clone https://aur.archlinux.org/yay-git.git
+
+cd yay-git
+
+# Execute the installation
+makepkg -si
+
+cd ..
+
+rm -rf yay-git
+
+echo "The AUR repository helper (YAY) has been sucessfuly installed!"
