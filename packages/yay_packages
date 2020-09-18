@@ -8,6 +8,7 @@ export YAY_PACKAGES=(
     ctags
     diffpdf
     discord
+    docker
     direnv
     dunst
     exa
@@ -15,6 +16,7 @@ export YAY_PACKAGES=(
     figlet
     flameshot
     ipython
+    jetbrains-toolbox
     lighttpd
     lxappearance
     neofetch

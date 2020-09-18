@@ -1,13 +1,24 @@
 #!/bin/env sh
 
-# Installs configuration files
-./config/install
+# Installs all the necessary packages
+./packages/arch_setup
+./packages/install_yay
+./packages/yay_packages
 
 # Installs all the necessary fonts
 ./fonts/install
 
+# Install all the customized scripts
+./scripts/install
+
+# Installs configuration files
+./config/install
+
 # Creates basic $HOME directories
 ./scripts/setup_scrits/create_base_dirs
 
-# Installs utilities scripts
+# Installs programming languages
+./asdf/install
 
+# Set wallpaper
+nitrogen --set-zoom-fill $HOME/.dotfiles/wallpapers/Anime/1014517_n.png

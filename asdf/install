@@ -22,6 +22,9 @@ ln -sfT ~/.dotfiles/asdf/asdfrc ~/.asdfrc
 echo_info "Symling .tool-versions..."
 ln -sfT ~/.dotfiles/asdf/tool-versions ~/.tool-versions
 
+exit
+zsh
+
 echo_info "Update asdf itself..."
 asdf update
 
