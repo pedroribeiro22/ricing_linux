@@ -1,0 +1,4 @@
+setxkbmap pt &
+nm-applet &
+dunst &
+exec i3

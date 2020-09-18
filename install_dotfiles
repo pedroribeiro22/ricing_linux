@@ -1,0 +1,13 @@
+#!/bin/env sh
+
+# Installs configuration files
+./config/install
+
+# Installs all the necessary fonts
+./fonts/install
+
+# Creates basic $HOME directories
+./scripts/setup_scrits/create_base_dirs
+
+# Installs utilities scripts
+

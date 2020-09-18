@@ -1,0 +1,21 @@
+#!/bin/bash
+
+SCRIPTS=$HOME/.dotfiles/scripts
+BINARIES=/usr/bin
+
+sudo cp $SCRIPTS/utilitary/i3memory 		$BINARIES/i3memory
+sudo cp $SCRIPTS/utilitary/i3wifi 		$BINARIES/i3wifi
+sudo cp $SCRIPTS/utilitary/i3weather 		$BINARIES/i3weather
+sudo cp $SCRIPTS/utilitary/polycpu 		$BINARIES/polycpu
+sudo cp $SCRIPTS/utilitary/polypulsevolume 	$BINARIES/polypulsevolume
+sudo cp $SCRIPTS/polytempamd 			$BINARIES/polytempamd
+sudo cp $SCRIPTS/updatepackages /usr/bin/updatepackages
+sudo cp $SCRIPTS/bspfullscreen /usr/bin/bspfullscreen
+sudo cp $SCRIPTS/bsphide /usr/bin/bsphide
+sudo cp $SCRIPTS/crystal /usr/bin/crystal
+sudo cp $SCRIPTS/bspswallow /usr/bin/bspswallow
+sudo cp $SCRIPTS/bspunhide /usr/bin/bspunhide
+sudo cp $SCRIPTS/tabc /usr/bin/tabc
+sudo cp $SCRIPTS/tabdmenu /usr/bin/tabdmenu
+sudo cp $SCRIPTS/launchpolybar /usr/bin/launchpolybar
+
