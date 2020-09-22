@@ -1,4 +1,5 @@
 setxkbmap pt &
 nm-applet &
 dunst &
+xrbd -merge ~/.Xresources
 exec i3
