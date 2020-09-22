@@ -2,4 +2,5 @@ setxkbmap pt &
 nm-applet &
 dunst &
 xrbd -merge ~/.Xresources
-exec i3
+sxhkd &
+exec bspwm

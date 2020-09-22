@@ -1,141 +1,151 @@
 #!/bin/sh
 
-# Alacritty
-echo "Installing Alacritty's configurations..."
+# # Alacritty
+# echo "Installing Alacritty's configurations..."
 
-[ -d $HOME/.config/alacritty ] && rm -rf $HOME/.config/alacritty
-mkdir -p  $HOME/.config/alacritty
-ln -sfT $HOME/.dotfiles/config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+# [ -d $HOME/.config/alacritty ] && rm -rf $HOME/.config/alacritty
+# mkdir -p  $HOME/.config/alacritty
+# ln -sfT $HOME/.dotfiles/config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
-# Dunst
-echo "Installing Dunst nofication manager configurations..."
+# # Dunst
+# echo "Installing Dunst nofication manager configurations..."
 
-[ -d $HOME/.config/dunst ] && rm -rf $HOME/.config/dunst
-mkdir -p $HOME/.config/dunst
-ln -sfT $HOME/.dotfiles/config/dunstrc $HOME/.config/dunst/dunstrc
-cp $HOME/.dotfiles/config/dunst/normal.png $HOME/.config/dunst/normal.png
-cp $HOME/.dotfiles/config/dunst/critical.png $HOME/.config/dunst/critical.png
+# [ -d $HOME/.config/dunst ] && rm -rf $HOME/.config/dunst
+# mkdir -p $HOME/.config/dunst
+# ln -sfT $HOME/.dotfiles/config/dunstrc $HOME/.config/dunst/dunstrc
+# cp $HOME/.dotfiles/config/dunst/normal.png $HOME/.config/dunst/normal.png
+# cp $HOME/.dotfiles/config/dunst/critical.png $HOME/.config/dunst/critical.png
 
-# Git
-echo "Installing Git configurations..."
+# # Git
+# echo "Installing Git configurations..."
 
-sudo pacman -Syu git-lfs --needed --noconfirm
-ln -sfT $HOME/.dotfiles/config/git/gitconfig $HOME/.gitconfig
+# sudo pacman -Syu git-lfs --needed --noconfirm
+# ln -sfT $HOME/.dotfiles/config/git/gitconfig $HOME/.gitconfig
 
-# GTK-2.0
-echo "Installing GTK-2.0 configurations..."
+# # GTK-2.0
+# echo "Installing GTK-2.0 configurations..."
 
-[ -d "$HOME/.config/gtk-2.0" ] && rm -rf "$HOME/.config/gtk-2.0"
-mkdir -p "$HOME/.config/gtk-2.0"
-ln -sfT "$HOME/.dotfiles/config/gtk-2.0/gtkfilechooser.ini" "$HOME/.config/gtk-2.0/gtkfilechooser.ini"
+# [ -d "$HOME/.config/gtk-2.0" ] && rm -rf "$HOME/.config/gtk-2.0"
+# mkdir -p "$HOME/.config/gtk-2.0"
+# ln -sfT "$HOME/.dotfiles/config/gtk-2.0/gtkfilechooser.ini" "$HOME/.config/gtk-2.0/gtkfilechooser.ini"
 
-# GTK-3.0
-echo "Installing GTK-3.0 configurations..."
+# # GTK-3.0
+# echo "Installing GTK-3.0 configurations..."
 
-[ -d "$HOME/.config/gtk-3.0" ] && rm -rf "$HOME/.config/gtk-3.0"
-mkdir -p "$HOME/.config/gtk-3.0"
-ln -sfT "$HOME/.dotfiles/config/gtk-3.0/gtk.css" "$HOME/.config/gtk-3.0/gtk.css"
-ln -sfT "$HOME/.dotfiles/config/gtk-3.0/settings.ini" "$HOME/.config/gtk-3.0/settings.ini"
+# [ -d "$HOME/.config/gtk-3.0" ] && rm -rf "$HOME/.config/gtk-3.0"
+# mkdir -p "$HOME/.config/gtk-3.0"
+# ln -sfT "$HOME/.dotfiles/config/gtk-3.0/gtk.css" "$HOME/.config/gtk-3.0/gtk.css"
+# ln -sfT "$HOME/.dotfiles/config/gtk-3.0/settings.ini" "$HOME/.config/gtk-3.0/settings.ini"
 
-# Haskell Interpretor (GHCI)
-echo "Installing Haskell Interpretor (GHCI) configurations..."
+# # Haskell Interpretor (GHCI)
+# echo "Installing Haskell Interpretor (GHCI) configurations..."
 
-ln -sfT $HOME/.dotfiles/config/haskell/ghci $HOME/.ghci
+# ln -sfT $HOME/.dotfiles/config/haskell/ghci $HOME/.ghci
 
-# i3wm
-echo "Installing i3 windows manager configurations..."
+# # i3wm
+# echo "Installing i3 windows manager configurations..."
 
-[ -d $HOME/.config/i3 ] && rm -rf $HOME/.config/i3
-mkdir -p $HOME/.config/i3
-ln -sfT $HOME/.dotfiles/config/i3wm/config $HOME/.config/i3/config
+# [ -d $HOME/.config/i3 ] && rm -rf $HOME/.config/i3
+# mkdir -p $HOME/.config/i3
+# ln -sfT $HOME/.dotfiles/config/i3wm/config $HOME/.config/i3/config
 
-# Latex
-echo "Installing Latex configurations..."
+# # Latex
+# echo "Installing Latex configurations..."
 
-sudo pacman -Syu texlive-core --needed --noconfirm
-ln -sfT $HOME/.dotfiles/config/latex/latexmkrc $HOME/.latexmkrc
+# sudo pacman -Syu texlive-core --needed --noconfirm
+# ln -sfT $HOME/.dotfiles/config/latex/latexmkrc $HOME/.latexmkrc
 
-# Neofetch
-echo "Installing Neofetch configurations..."
+# # Neofetch
+# echo "Installing Neofetch configurations..."
 
-[ -d $HOME/.config/neofetch ] && rm -rf $HOME/.config/neofetch
-mkdir -p $HOME/.config/neofetch
-ln -sfT $HOME/.dotfiles/config/neofetch/config.conf $HOME/.config/neofetch/config.conf
+# [ -d $HOME/.config/neofetch ] && rm -rf $HOME/.config/neofetch
+# mkdir -p $HOME/.config/neofetch
+# ln -sfT $HOME/.dotfiles/config/neofetch/config.conf $HOME/.config/neofetch/config.conf
 
-# Neovim
-echo "Installing NeoVim configurations..."
+# # Neovim
+# echo "Installing NeoVim configurations..."
 
-sudo pacman -Syu neovim
-curl -fLO ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# sudo pacman -Syu neovim
+# curl -fLO ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+# 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-[ -d $HOME/.config/nvim ] && rm -rf $HOME/.config/nvim
-mkdir -p $HOME/.config/nvim
-ln -sfT $HOME/.dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim
+# [ -d $HOME/.config/nvim ] && rm -rf $HOME/.config/nvim
+# mkdir -p $HOME/.config/nvim
+# ln -sfT $HOME/.dotfiles/config/nvim/init.vim $HOME/.config/nvim/init.vim
 
-# Okular PDF Reader
-echo "Installing Okular PDF Reader configurations..."
+# # Okular PDF Reader
+# echo "Installing Okular PDF Reader configurations..."
 
-ln -sfT $HOME/.dotfiles/config/okular/okularpartrc $HOME/.config/okularpartrc
+# ln -sfT $HOME/.dotfiles/config/okular/okularpartrc $HOME/.config/okularpartrc
 
-# Picom - Compositor
-echo "Installing Picom (Compositor) configurations..."
+# # Picom - Compositor
+# echo "Installing Picom (Compositor) configurations..."
 
-ln -sf $HOME/.dotfiles/config/picom/picom.conf $HOME/.config/picom.conf
+# ln -sf $HOME/.dotfiles/config/picom/picom.conf $HOME/.config/picom.conf
 
-# Polybar
-echo "Installing Polybar configurations..."
+# # Polybar
+# echo "Installing Polybar configurations..."
 
-[ -d $HOME/.config/polybar ] && rm -rf $HOME/.config/polybar
-mkdir -p $HOME/.config/polybar
-ln -sfT $HOME/.dotfiles/config/polybar/config $HOME/.config/polybar/config
+# [ -d $HOME/.config/polybar ] && rm -rf $HOME/.config/polybar
+# mkdir -p $HOME/.config/polybar
+# ln -sfT $HOME/.dotfiles/config/polybar/config $HOME/.config/polybar/config
 
-# Env Variables
-echo "Copying environment variables to ~/.profile."
+# # Env Variables
+# echo "Copying environment variables to ~/.profile."
 
-ln -sfT $HOME/.dotfiles/config/profile/profile $HOME/.profile
+# ln -sfT $HOME/.dotfiles/config/profile/profile $HOME/.profile
 
-# Ranger - File Manager
-echo "Installing Ranger (File Manager) configurations..."
+# # Ranger - File Manager
+# echo "Installing Ranger (File Manager) configurations..."
 
-sudo pacman -Sy ranger --noconfirm --needed --noconfirm
-[ -d $HOME/.config/ranger ] && rm -rf $HOME/.config/ranger
-mkdir -p $HOME/.config/ranger
-ln -sfT $HOME/.dotfiles/config/ranger/rc.conf $HOME/.config/ranger/rc.conf
-ln -sfT $HOME/.dotfiles/config/ranger/rifle.conf $HoME/.config/ranger/rifle.conf
+# sudo pacman -Sy ranger --noconfirm --needed --noconfirm
+# [ -d $HOME/.config/ranger ] && rm -rf $HOME/.config/ranger
+# mkdir -p $HOME/.config/ranger
+# ln -sfT $HOME/.dotfiles/config/ranger/rc.conf $HOME/.config/ranger/rc.conf
+# ln -sfT $HOME/.dotfiles/config/ranger/rifle.conf $HoME/.config/ranger/rifle.conf
 
-# Rofi
-echo "Installing Rofi configurations..."
+# # Rofi
+# echo "Installing Rofi configurations..."
 
-sudo pacman -Syu rofi
-[ -d $HOME/.config/rofi ] && rm -rf $HOME/.config/rofi
-mkdir -p $HOME/.config/rofi
-ln -sfT $HOME/.dotfiles/config/rofi/config $HOME/.config/rofi/config
+# sudo pacman -Syu rofi
+# [ -d $HOME/.config/rofi ] && rm -rf $HOME/.config/rofi
+# mkdir -p $HOME/.config/rofi
+# ln -sfT $HOME/.dotfiles/config/rofi/config $HOME/.config/rofi/config
 
-# VSCodium
+# # VSCodium
 
-[ ! -d $HOME/.config/VSCodium ] && mkdir -p $HOME/.config/VSCodium/User
-[ ! -d $HOME/.config/VSCodium/User ] && mkdir -p $HOME/.config/VSCodium/User
-ln -sfT $HOME/.dotfiles/config/VSCodium/keybindings.json $HOME/.config/VSCodium/User/keybindings.json
-ln -sfT $HOME/.dotfiles/config/VSCodium/settings.json $HOME/.config/VSCodium/User/settings.json
+# [ ! -d $HOME/.config/VSCodium ] && mkdir -p $HOME/.config/VSCodium/User
+# [ ! -d $HOME/.config/VSCodium/User ] && mkdir -p $HOME/.config/VSCodium/User
+# ln -sfT $HOME/.dotfiles/config/VSCodium/keybindings.json $HOME/.config/VSCodium/User/keybindings.json
+# ln -sfT $HOME/.dotfiles/config/VSCodium/settings.json $HOME/.config/VSCodium/User/settings.json
 
-# ZSH
-echo "Installing ZSH configurations...\n"
+# # ZSH
+# echo "Installing ZSH configurations...\n"
 
-sudo pacman -Syu zsh --needed --noconfirm
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/bhilburn/powerlevel9k.git             "$HOME/.oh-my-zsh/custom/themes/powerlevel9k"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
-git clone https://github.com/zsh-users/zsh-autosuggestions         "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+# sudo pacman -Syu zsh --needed --noconfirm
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# git clone https://github.com/bhilburn/powerlevel9k.git             "$HOME/.oh-my-zsh/custom/themes/powerlevel9k"
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+# git clone https://github.com/zsh-users/zsh-autosuggestions         "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
 
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-sudo ln -sfT "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/themes/spaceship.zsh-theme"
+# git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+# sudo ln -sfT "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$HOME/.oh-my-zsh/themes/spaceship.zsh-theme"
 
-ln -sfT "$HOME/.dotfiles/config/zsh/zshrc"   "$HOME/.zshrc"
+# ln -sfT "$HOME/.dotfiles/config/zsh/zshrc"   "$HOME/.zshrc"
 
-chsh -s "$(command -v zsh)"
+# chsh -s "$(command -v zsh)"
 
-# XInitrc
-echo "Xinitrc was copied to ~/.xinitrc.\n"
+# # XInitrc
+# echo "Xinitrc was copied to ~/.xinitrc.\n"
 
-ln -sfT $HOME/.dotfiles/config/xinitrc $HOME/.xinitrc
+# ln -sfT $HOME/.dotfiles/config/xinitrc $HOME/.xinitrc
+
+# BSPWM
+[ ! -d $HOME/.config/bspwm ] && rm -rf $HOME/.config/bspwm
+mkdir -p $HOME/.config/bspwm
+ln -sfT $HOME/.dotfiles/config/bspwm/bspwmrc $HOME/.config/bspwm/bspwmrc
+
+# SXHKD
+[ ! -d $HOME/.config/sxhkd ] && rm -rf $HOME/.config/sxhkd
+mkdir -p $HOME/.config/sxhkd
+ln -sfT $HOME/.dotfiles/config/sxhkd/sxhkdrc $HOME/.config/sxhkd/sxhkdrc
