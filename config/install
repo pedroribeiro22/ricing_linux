@@ -154,3 +154,13 @@ ln -sfT $HOME/.dotfiles/config/sxhkd/sxhkdrc $HOME/.config/sxhkd/sxhkdrc
 echo "Xprofile was copied to ~/.Xprofile.\n"
 
 ln -sfT $HOME/.dotfiles/config/xprofile $HOME/.Xprofile
+
+# XResources
+echo "XResources was copied to ~/.Xresources.\n"
+
+ln -sfT $HOME/.dotfiles/config/xresources $HOME/.Xresources
+
+# Zshenv
+echo "zshenv was copied to ~/.zshenv"
+
+ln -sf
