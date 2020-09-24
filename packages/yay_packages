@@ -31,6 +31,7 @@ export YAY_PACKAGES=(
     redshift
     rofi
     rofimoji
+    simple-scan
     shfmt
     telegram-desktop
     tldr

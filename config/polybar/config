@@ -22,12 +22,12 @@ margin-top = 0
 margin-bottom = 0
 
 [bar/top]
-monitor = ${env:MONITOR:eDP1}
-monitor-fallback =
+monitor = ${env:MONITOR:eDP-1}
+monitor-fallback = ${env:MONITOR:HDMI-1}
 monitor-strict = false
 monitor-exact = true
 override-redirect = false
-wm-restack = i3
+wm-restack = bspwm
 enable-ipc = true
 fixed-center = false
 bottom = false
@@ -53,7 +53,7 @@ font-1 = Font Awesome 5 Free:pixelsize=10;0
 font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 font-3 = Font Awesome 5 Brands:pixelsize=10;0
 
-modules-left = i3 xwindow
+modules-left = bspwm xwindow
 modules-right = pacman-packages cpu cpu-temperature memory volume weather battery time
 
 tray-position = right
@@ -112,9 +112,6 @@ format-mounted = <label-mounted>
 ;   %used%
 ; Default: %mountpoint% %percentage_free%%
 label-mounted = 💽 %free%
-
-[module/i3]
-type = internal/i3
 
 pin-workspaces = true
 strip-wsnumbers = true
@@ -269,3 +266,31 @@ animation-discharging-2 = 
 animation-discharging-3 = 
 animation-discharging-4 = 
 animation-discharging-framerate = 750
+
+[module/bspwm]
+type = internal/bspwm
+
+enable-scroll = true
+label-focused = %name%
+label-focused-background = ${colors.background-wm}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 1
+
+label-occupied = %name%
+label-occupied-padding = 1
+
+label-urgent = %name%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+
+format-underline =
+format-background =
+format-padding =
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+label-separator = |
