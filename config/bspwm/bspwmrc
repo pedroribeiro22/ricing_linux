@@ -7,13 +7,19 @@ bspc rule -r "*"
 nm-applet &
 xrdb -merge ~/.Xresources &
 picom --config /home/pedro/.config/picom.conf &
-nitrogen --set-zoom-fill /home/pedro/.dotfiles/wallpapers/Anime/1014517_n.png &
+nitrogen --set-zoom-fill /home/pedro/.dotfiles/wallpapers/78511589_p0.png &
 flameshot &
 launchpolybar &
 
 MONITOR=eDP-1
 
-bspc monitor DP-4 -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor DP-4 -d 1 2 3 4 5 6 7 8 9
+
+function twoMonitorsDesktop {
+    bspc monitor DP-4 -d 1 2 3 4 5 6 7 8 9
+    xrandr --output HDMI-0 --mode 1366x768 --scale 1.401x1.401
+    bspc monitor HDMI-0 -d 10
+}
 
 function workspacesArrayConnectedHDMI {
     xrandr --output HDMI-1 --mode 1920x1080 --output eDP-1 --off
@@ -32,6 +38,10 @@ function HDMI1Connected {
     ! xrandr | grep "^HDMI-1" | grep disconnected
 }
 
+function HDMI0Connected {
+    ! xrandr | grep "^HDMI-0" | grep disconnected
+}
+
 if HDMI1Connected
 then
     workspacesArrayConnected
@@ -41,6 +51,11 @@ if ! HDMI1Connected
 then
     workspacesArrayDisconnected
 fi
+if HDMI0Connected
+then
+    twoMonitorsDesktop
+fi
+
 
 # Global Settings
 bspc config automatic_scheme alternate
