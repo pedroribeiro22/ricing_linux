@@ -1,0 +1,27 @@
+#!/bin/sh
+
+echo "The following fonts are about to be installed:\n\n"
+echo "\t-> Nerd Fonts\n"
+echo "\t-> Google Noto Fonts\n"
+echo "\t-> Font Awesome Free Desktop Version\n"
+
+echo "Downloading Nerd Fonts\n"
+echo "It might take a while...\n\n"
+
+[ ! -d $HOME/.fonts ] && mkdir $HOME/.fonts
+git clone https://github.com/ryanoasis/nerd-fonts.git $HOME/.fonts/.
+
+echo "Downloading Goole Noto Fonts\n"
+echo "It might take a while...\n\n"
+
+git clone https://github.com/googlefonts/noto-fonts.git $HOME/.fonts/google_noto_fonts
+
+echo "Download Font Awesome Free Desktop Version Fonts\n"
+echo "This should be reasonably fast...\n\n"
+
+git clone https://github.com/FortAwesome/Font-Awesome.git $HOME/.fonts/font_awesome
+
+sudo cp $HOME/.dotfiles/fonts/50-noto-color-emoji.conf /etc/fonts/conf.d
+sudo cp $HOME/.dotfiles/fonts/50-noto-color-emoji.conf $HOME/.fonts/.
+
+echo "The fonts are now installed\n"

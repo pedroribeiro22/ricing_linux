@@ -1,0 +1,52 @@
+#!/bin/bash
+
+export YAY_PACKAGES=(
+    bat
+    betterlockscreen
+    bind-tools
+    catdoc
+    ctags
+    diffpdf
+    discord
+    docker
+    direnv
+    dunst
+    exa
+    feh
+    figlet
+    flameshot
+    ipython
+    jetbrains-toolbox
+    lighttpd
+    lxappearance
+    neofetch
+    obs-studio
+    odt2txt
+    pcmanfm
+    pulseaudio
+    pulseaudio-bluetooth
+    polybar
+    pv
+    ranger
+    redshift
+    rofi
+    rofimoji
+    simple-scan
+    shfmt
+    telegram-desktop
+    tldr
+    sc-im
+    slack-desktop
+    spotify
+    tree
+    unzip
+    watchexec
+    wget
+    wmctrl
+    zathura-pdf-mupdf
+)
+
+for package in ${YAY_PACKAGES[@]}; do
+    echo "Installing $package..."
+    yay -S $package --needed --noconfirm
+done

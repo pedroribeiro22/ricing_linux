@@ -1,0 +1,91 @@
+#!/bin/sh
+
+# Clears all previous rules (in order to start a blank config)
+bspc rule -r "*"
+
+# Autostart
+nm-applet &
+xrdb -merge ~/.Xresources &
+picom --config /home/pedro/.config/picom.conf &
+nitrogen --set-zoom-fill /home/pedro/.dotfiles/wallpapers/78511589_p0.png &
+flameshot &
+launchpolybar &
+
+MONITOR=eDP-1
+
+bspc monitor DP-4 -d 1 2 3 4 5 6 7 8 9
+
+function twoMonitorsDesktop {
+    bspc monitor DP-4 -d 1 2 3 4 5 6 7 8 9
+    xrandr --output HDMI-0 --mode 1366x768 --scale 1.401x1.401
+    bspc monitor HDMI-0 -d 10
+}
+
+function workspacesArrayConnectedHDMI {
+    xrandr --output HDMI-1 --mode 1920x1080 --output eDP-1 --off
+    bspc monitor HDMI-1 -d 1 2 3 4 5 6 7 8 9 10
+    MONITOR=HDMI-1
+}
+
+function workspacesArrayDisconnected {
+    xrandr --output HDMI-1 --off --output eDP-1 --auto
+    bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9 10
+    MONITOR=eDP-1
+}
+
+# Checks wether the computer is connected to an external display
+function HDMI1Connected {
+    ! xrandr | grep "^HDMI-1" | grep disconnected
+}
+
+function HDMI0Connected {
+    ! xrandr | grep "^HDMI-0" | grep disconnected
+}
+
+if HDMI1Connected
+then
+    workspacesArrayConnected
+fi
+
+if ! HDMI1Connected
+then
+    workspacesArrayDisconnected
+fi
+if HDMI0Connected
+then
+    twoMonitorsDesktop
+fi
+
+
+# Global Settings
+bspc config automatic_scheme alternate
+bspc config initial_polarity second_child
+bspc config pointer_modifier lock
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+bspc config click_to_focus none
+
+bspc config focus_follows_pointer true
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+bspc config merge_overlapping_monitors true
+
+bspc config normal_border_color "4c566a"
+bspc config active_border_color "#1e1e1e"
+bspc config focused_border_color "#406ea5"
+bspc config presel_feedback_color "#5e81ac"
+bspc config urgent_border_color "#dd2727"
+
+# Monitor and desktop settings
+bspc config top_padding 32
+bspc config bottom_padding 0
+bspc config left_padding 0
+bspc config right_padding 0
+bspc config border_width 2
+bspc config window_gap 10
+
+bspc rule -a brave-browser desktop='^3'
+bspc rule -a slack desktop='^4'
+bspc rule -a discord desktop='^5'
+bspc rule -a spotify desktop='^0'

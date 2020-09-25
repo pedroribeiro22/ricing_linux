@@ -1,0 +1,5 @@
+setxkbmap pt &
+dunst &
+xrbd -merge ~/.Xresources
+sxhkd &
+exec bspwm

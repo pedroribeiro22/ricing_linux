@@ -1,0 +1,9 @@
+{
+    "vscode-neovim.neovimPath": "/usr/bin/nvim",
+    "window.zoomlevel": 0,
+    "editor.fontFamily": "Source Code Pro Medium",
+    "editor.fontSize": 14,
+    "editor.lineNumbers": "relative",
+    "vim.useCtrlKeys": true,
+    "vim.useSystemClipboard": true
+}

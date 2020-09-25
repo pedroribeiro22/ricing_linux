@@ -1,0 +1,74 @@
+# System Keybindings Configuration File
+
+# Launch Terminal Emulator
+super + Return
+    $TERMINAL
+
+# Launch Rofi Program Launcher
+super + @space
+    rofi -show
+
+# Reload SXHKD and BSPWM configuration files
+super + shift + r
+    pkill -USR1 -x sxhkd && bspc wm -r
+
+# Kill a window
+super + shift + q
+    bspc node --kill
+
+# Focus the node in the given direction
+super + {_, shift + }{h, j, k, l}
+    bspc node -{f, s} {west, south, north, east}
+
+super + {_, shift + }{Left, Down, Up, Right}
+    bspc node -{f, s} {west, south, north, east}
+
+# Focus or send to the given desktop
+super + {_, shift + }{1-9, 0}
+    bspc {desktop -f, node -d} '^{1-9, 10}'
+
+# Expand a window by moving one of its side outward
+super + alt + {h, j, k, l}
+    bspc node -z {left -20 0, bottom 0 20, top 0 -20, right 20 0}
+
+# Contract a window by moving one of it's sides inward
+super + alt + shift + {h, j, k, l}
+    bspc node -z {right -20 0, top 0 20, bottom 0 -20, left 20 0}
+
+# Go to lockscreen
+super + Escape
+    betterlockscreen -l blur
+
+# Volume Controls
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Brightness Controls
+XF86MonBrightnessUp
+    xbacklight -inc 5
+
+XF86MonBrightnessDown
+    xbacklight -dec 5
+
+# Media Controls
+XF86AudioPlay
+    playerctl play
+
+XF86AudioPause
+    playerctl pause
+
+XF86AudioNext
+    playerctl next
+
+XF86AudioPrev
+    playerctl prev
+
+# Printscreen
+Print
+    flameshot gui
