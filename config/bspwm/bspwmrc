@@ -13,7 +13,9 @@ launchpolybar &
 
 MONITOR=eDP-1
 
-function workspacesArrayConnected {
+bspc monitor DP-4 -d 1 2 3 4 5 6 7 8 9 10
+
+function workspacesArrayConnectedHDMI {
     xrandr --output HDMI-1 --mode 1920x1080 --output eDP-1 --off
     bspc monitor HDMI-1 -d 1 2 3 4 5 6 7 8 9 10
     MONITOR=HDMI-1

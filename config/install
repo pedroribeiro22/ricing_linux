@@ -163,4 +163,4 @@ ln -sfT $HOME/.dotfiles/config/xresources $HOME/.Xresources
 # Zshenv
 echo "zshenv was copied to ~/.zshenv"
 
-ln -sf
+ln -sfT $HOME/.dotfiles/config/zshenv $HOME/.zshenv

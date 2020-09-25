@@ -8,14 +8,14 @@ sudo cp $SCRIPTS/utilitary/i3wifi 		$BINARIES/i3wifi
 sudo cp $SCRIPTS/utilitary/i3weather 		$BINARIES/i3weather
 sudo cp $SCRIPTS/utilitary/polycpu 		$BINARIES/polycpu
 sudo cp $SCRIPTS/utilitary/polypulsevolume 	$BINARIES/polypulsevolume
-sudo cp $SCRIPTS/polytempamd 			$BINARIES/polytempamd
-sudo cp $SCRIPTS/updatepackages /usr/bin/updatepackages
-sudo cp $SCRIPTS/bspfullscreen /usr/bin/bspfullscreen
-sudo cp $SCRIPTS/bsphide /usr/bin/bsphide
-sudo cp $SCRIPTS/crystal /usr/bin/crystal
-sudo cp $SCRIPTS/bspswallow /usr/bin/bspswallow
-sudo cp $SCRIPTS/bspunhide /usr/bin/bspunhide
-sudo cp $SCRIPTS/tabc /usr/bin/tabc
-sudo cp $SCRIPTS/tabdmenu /usr/bin/tabdmenu
-sudo cp $SCRIPTS/launchpolybar /usr/bin/launchpolybar
+sudo cp $SCRIPTS/utilitary/polytempamd 			$BINARIES/polytempamd
+sudo cp $SCRIPTS/utilitary/updatepackages /usr/bin/updatepackages
+sudo cp $SCRIPTS/utilitary/bspfullscreen /usr/bin/bspfullscreen
+sudo cp $SCRIPTS/utilitary/bsphide /usr/bin/bsphide
+sudo cp $SCRIPTS/utilitary/crystal /usr/bin/crystal
+sudo cp $SCRIPTS/utilitary/bspswallow /usr/bin/bspswallow
+sudo cp $SCRIPTS/utilitary/bspunhide /usr/bin/bspunhide
+sudo cp $SCRIPTS/utilitary/tabc /usr/bin/tabc
+sudo cp $SCRIPTS/utilitary/tabdmenu /usr/bin/tabdmenu
+sudo cp $SCRIPTS/utilitary/launchpolybar /usr/bin/launchpolybar
 

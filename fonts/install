@@ -9,7 +9,7 @@ echo "Downloading Nerd Fonts\n"
 echo "It might take a while...\n\n"
 
 [ ! -d $HOME/.fonts ] && mkdir $HOME/.fonts
-git clone https://github.com/ryanoasis/nerd-fonts.git $HOME/.fonts
+git clone https://github.com/ryanoasis/nerd-fonts.git $HOME/.fonts/.
 
 echo "Downloading Goole Noto Fonts\n"
 echo "It might take a while...\n\n"
