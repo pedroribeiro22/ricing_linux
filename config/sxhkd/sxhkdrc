@@ -2,7 +2,7 @@
 
 # Launch Terminal Emulator
 super + Return
-    $TERMINAL
+    termite
 
 # Launch Rofi Program Launcher
 super + @space
@@ -14,7 +14,7 @@ super + shift + r
 
 # Kill a window
 super + shift + q
-    bspc node --kill
+    bspc node -c
 
 # Focus the node in the given direction
 super + {_, shift + }{h, j, k, l}

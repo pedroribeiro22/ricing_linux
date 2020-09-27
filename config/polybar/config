@@ -1,296 +1,271 @@
-[colors]
-background = #1d1f21
-background-wm = #444444
-background-alt = #2D2D2D
-foreground = #D8DEE9
-foreground-alt = #555555
-primary = #268BD2
-alert = #ED0B0B
-
-[settings]
-format-foreground =
-format-underline = ${colors.primary}
-format-background = ${colors.background-alt}
-format-padding = 1
-format-overline =
-format-margin = 0
-format-offset =
-screenchange-reload = true
-
 [global/wm]
+
 margin-top = 0
 margin-bottom = 0
 
+[settings]
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+format-foreground = #FF0000
+format-background = #00FF00
+format-underline =
+format-overline =
+format-spaceing =
+format-padding =
+format-margin =
+format-offset =
+
+[colors]
+background = #282C34
+foreground = #ABB2BF
+alert = #BD2C40
+volume-min = #A3BE8C
+volume-med = #EBCB8B
+volume-max = #BF616A
+
+### Mainbar BSPWM
+
 [bar/top]
-monitor = ${env:MONITOR:eDP-1}
-monitor-fallback = ${env:MONITOR:HDMI-1}
-monitor-strict = false
-monitor-exact = true
-override-redirect = false
-wm-restack = bspwm
-enable-ipc = true
-fixed-center = false
+monitor = ${env:MONITOR:eDP1}
+width = 100%
+height = 23
+radius = 0.0
+fixed-center = true
 bottom = false
 separator =
-
-width = 100%
-height = 32
-offset-x = 0
-offset-y = 0
-radius = 0.0
-
-underline_size = 3
-overline_size = 0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-module-margin-left = 0
-module-margin-right = 1
+line-size = 2
+line-color = #F00
 
-font-0 = JetBrainsMonoMedium:pixelsize=10;
-font-1 = Font Awesome 5 Free:pixelsize=10;0
-font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
-font-3 = Font Awesome 5 Brands:pixelsize=10;0
+wm-restack = bspwm
+override-redirect = true
+
+enable-ipc = true
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 0
+module-margin-right = 0
+
+font-0 = "UbuntuMono Nerd Font:size=10;2"
+font-1 = "UbuntuMono Nerd Font:size=16;3"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
+font-4 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = bspwm xwindow
-modules-right = pacman-packages cpu cpu-temperature memory volume weather battery time
+modules-center =
+modules-right = arrow1 networkspeedup networkspeeddown arrow2 memory2 arrow3 cpu2 arrow2 pavolume arrow3 arch-aur-updates arrow2 date
 
-tray-position = right
-tray-padding = 1
-tray-background = ${colors.background-alt}
-tray-offset-x = 0
-tray-offset-y = 0
-tray-scale = 1.0
+/* tray-detached = false */
+/* tray-offset-x = 0 */
+/* tray-offset-y = 0 */
+/* tray-position = right */
+/* tray-padding = 2 */
+/* tray-maxsize = 20 */
+/* tray-scale = 1.0 */
+/* tray-background = ${colors.background} */
 
-cursor-click = pointer
-cursor-scroll = default
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
 
-line-size = 3
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-
-format-underline =
-format-background =
-format-padding =
-
-[module/filesystem]
-type = internal/fs
-
-; Mountpoints to display
-mount-0 = /home
-
-; Seconds to sleep between updates
-; Default: 30
-interval = 10
-
-; Display fixed precision values
-; Default: false
-fixed-values = true
-
-; Spacing between entries
-; Default: 2
-spacing = 4
-
-; Available tags:
-;   <label-mounted> (default)
-;   <bar-free>
-;   <bar-used>
-;   <ramp-capacity>
-format-mounted = <label-mounted>
-
-; Available tokens:
-;   %mountpoint%
-;   %type%
-;   %fsname%
-;   %percentage_free%
-;   %percentage_used%
-;   %total%
-;   %free%
-;   %used%
-; Default: %mountpoint% %percentage_free%%
-label-mounted = 💽 %free%
-
-pin-workspaces = true
-strip-wsnumbers = true
-index-sort = true
-enable-click = true
-enable-scroll = false
-wrapping-scroll = false
-reverse-scroll = false
-fuzzy-match = true
-format = <label-state> <label-mode>
-
-label-mode = %mode%
-label-mode-padding = 1
-label-mode-background = #e60053
-
-label-focused = %name%
-label-focused-background = ${colors.background-wm}
-label-focused-underline = ${colors.primary}
-label-focused-padding = 1
-
-label-unfocused = %name%
-label-unfocused-foreground = #cccccccc
-label-unfocused-padding = 1
-
-label-visible = %name%
-label-visible-foreground = #cccccccc
-label-visible-padding = 1
-
-label-urgent = %index% %name%
-label-urgent-foreground = #ffffff
-label-urgent-background = #bd2c40
-label-urgent-padding = 1
-
-format-underline =
-format-background =
-format-padding =
-
-label-separator = |
-
-[module/pacman-packages]
-type = custom/ipc
-hook-0 = sudo pacman -Qu | wc -l
-format-prefix = "📦 "
-click-left = updatepackages
-initial = 1
-
-[module/memory]
-type = custom/script
-exec = i3memory
-label = "%output%"
-click-left = alacritty -e htop &
-interval = 10
-format-prefix = "🧠 "
-
-[module/cpu-usage]
-type = custom/script
-exec = polycpu
-label = "%output%"
-click-left = alacritty -e htop &
-interval = 10
-format-prefix = "💻 "
-
-
-[module/cpu-temperature]
-type = internal/temperature
-interval = 2
-thermal-zone = 0
-warn-temperature = 60
-format = <label>
-format-warn = <label-warn>
-label = 🔥 %temperature-c%
-label-warn = 🔥 %temperature-c%
-label-warn-foreground = #f00
-
-[module/weather]
-type = custom/script
-exec = i3weather
-label = "%output%"
-click-left = alacritty -e w3m wttr.in/Adelaide &
-interval = 1800
-
-[module/time]
-type = custom/script
-exec = date '+%d/%m/%Y %H:%M:%S'
-label = "%output%"
-interval = 1
-
-[module/volume]
-
-type = internal/pulseaudio
-sink = @DEFAULT_SINK@
-use-ui-max = true
-interval = 5
-format-volume = <ramp-volume> <label-volume>
-;format-muted = <label-muted>
-;label-volume = %percentage%%
-label-muted = 🔇 Muted
-label-muted-foreground = #666
-ramp-volume-0 = 🔈
-ramp-volume-1 = 🔉
-ramp-volume-2 = 🔊
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = true
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = #44
-
-[module/cpu]
-type = internal/cpu
-interval = 10
-label = 💻 %percentage%%
-
-[module/battery]
-type = internal/battery
-full-at = 99
-battery = BAT1
-adapter = ACAD
-poll-interval = 5
-time-format = %H:%M
-format-charging = <animation-charging> <label-charging>
-format-discharging = <ramp-capacity> <label-discharging>
-format-full = <ramp-capacity> <label-full>
-label-charging =  %{F#99}%{F-} %percentage%%
-label-discharging = %{F#99}%time%%{F-} %percentage%%
-label-full = %percentage%%
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-bar-capacity-width = 10
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 750
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
-animation-discharging-framerate = 750
+### Module BSPWM
 
 [module/bspwm]
 type = internal/bspwm
 
+enable-click = true
 enable-scroll = true
-label-focused = %name%
-label-focused-background = ${colors.background-wm}
-label-focused-underline = ${colors.primary}
-label-focused-padding = 1
+reverse-scroll = true
+pin-workspaces = true
 
-label-occupied = %name%
-label-occupied-padding = 1
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = " "
 
-label-urgent = %name%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 1
+format = <label-state> <label-mode>
 
-label-empty = %name%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 1
+label-focused = %icon%
+label-focused-background = ${colors.background}
+label-focused-underline = #6790EB
+label-focused-padding = 2
+label-focused-foreground = ${colors.foreground}
 
-format-underline =
-format-background =
-format-padding =
-scroll-up = bspwm-desknext
-scroll-down = bspwm-deskprev
+label-occupied = %icon%
+label-occupied-padding = 2
+label-occupied-background = ${colors.background}
 
-label-separator = |
+label-urgent = %icon%
+label-urgent-padding = 2
+
+label-empty = %icon%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 2
+label-empty-background = ${colors.background}
+label-monocle = "  "
+label-monocle-foreground = ${colors.foreground}
+label-tiled = "  "
+label-tiled-foreground = ${colors.foreground}
+label-fullscreen = "  "
+label-fullscreen-foreground = ${colors.foreground}
+label-floating = "  "
+label-floating-foreground = ${colors.foreground}
+label-pseudotiled = "  "
+label-pseudotiled-foreground = ${colors.foreground}
+label-locked = "  "
+label-locked-foreground = ${colors.foreground}
+label-sticky = "  "
+label-sticky-foreground = ${colors.foreground}
+label-private = "     "
+label-private-foreground = ${colors.foreground}
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+
+### Arrow Modules
+
+
+[module/arrow1]
+; grey to Blue
+type = custom/text
+content = "%{T3} %{T-}"
+content-font = 3
+content-foreground = #8D62A9
+content-background = #292D3E
+
+[module/arrow2]
+; grey to Blue
+type = custom/text
+content = "%{T3} %{T-}"
+content-font = 3
+content-foreground = #668BD7
+content-background = #8D62A9
+
+[module/arrow3]
+; grey to Blue
+type = custom/text
+content = "%{T3} %{T-}"
+content-font = 3
+content-foreground = #8B62A9
+content-background = #668BD7
+
+[module/xwindow]
+type = internal/xwindow
+
+label = %title%
+label-maxlen = 50
+
+format-prefix = "  "
+format-prefix-underline = #292D3E
+format-underline = #E1ACFF
+format-foreground = #E1ACFF
+format-background = ${colors.background}
+
+[module/networkspeedup]
+type = internal/network
+
+interface = wlp3s0
+label-connected = "%upspeed:7%"
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = #fefefe
+format-connected-foreground = #fefefe
+format-connected-background = #8d62a9
+
+[module/networkspeeddown]
+type = internal/network
+
+interface = wlp3s0
+label-connected = "%downspeed:7%"
+format-connected = <label-connected>
+format-connected-prefix = "  "
+format-connected-prefix-foreground = #FEFEFE
+format-connected-foreground = #FEFEFE
+format-connected-background = #8D62AD
+
+[module/memory2]
+type = internal/memory
+interval = 1
+label = %percentage_used%%
+
+format = Mem <label>
+format-prefix = " "
+format-prefix-foreground = #fefefe
+format-foreground = #fefefe
+format-background = #668bd7
+
+[module/cpu2]
+type = internal/cpu
+interval = 1
+format-foreground = #FEFEFE
+format-background = #8D62AD
+format-prefix = " "
+format-prefix-foreground = #FEFEFE
+
+label-font = 1
+
+format = <label>
+
+label = Cpu %percentage:3%%
+
+[module/pavolume]
+type = custom/script
+tail = true
+label = %output%
+exec = ~/.config/polybar/scripts/pavolume.sh --listen
+click-right = exec pavucontrol
+click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
+scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
+scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
+format-foreground = #FEFEFE
+format-background = #668BD7
+
+[module/arch-aur-updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/check-all-updates.sh
+interval = 1000
+label = Updates: %output%
+format-foreground = #FEFEFE
+format-background = #8D62AD
+format-prefix = "  "
+format-prefix-foreground = #FEFEFE
+
+[module/date]
+type = internal/date
+
+interval = 5
+
+date = " %a %b %d, %Y"
+date-alt = " %a %b %d, %Y"
+time = %l:%M%p
+time-alt = %l:%M%p
+format-prefix = " "
+format-prefix-foreground = #fefefe
+format-foreground = #fefefe
+format-background = #668bd7
+label = "%date% %time% "
+
+# vim:ft=dosini

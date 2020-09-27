@@ -7,6 +7,13 @@ echo "Installing Alacritty's configurations..."
 mkdir -p  $HOME/.config/alacritty
 ln -sfT $HOME/.dotfiles/config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
+# Termite
+echo "Installing Termite's configurations..."
+
+[ -d $HOME/.config/termite ] && rm -rf $HOME/.config/termite
+mkdir -p $HOME/.config/termite
+ln -sfT $HOME/.dotfiles/config/termite/config $HOME/.config/termite/config
+
 # Dunst
 echo "Installing Dunst nofication manager configurations..."
 

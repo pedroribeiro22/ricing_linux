@@ -1,0 +1,296 @@
+[colors]
+background = #1d1f21
+background-wm = #444444
+background-alt = #2D2D2D
+foreground = #D8DEE9
+foreground-alt = #555555
+primary = #268BD2
+alert = #ED0B0B
+
+[settings]
+format-foreground =
+format-underline = ${colors.primary}
+format-background = ${colors.background-alt}
+format-padding = 1
+format-overline =
+format-margin = 0
+format-offset =
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[bar/top]
+monitor = ${env:MONITOR:eDP-1}
+monitor-fallback = ${env:MONITOR:HDMI-1}
+monitor-strict = false
+monitor-exact = true
+override-redirect = false
+wm-restack = bspwm
+enable-ipc = true
+fixed-center = false
+bottom = false
+separator =
+
+width = 100%
+height = 32
+offset-x = 0
+offset-y = 0
+radius = 0.0
+
+underline_size = 3
+overline_size = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+module-margin-left = 0
+module-margin-right = 1
+
+font-0 = Mononoki Nerd Font:pixelsize=10;
+font-1 = Font Awesome 5 Free:pixelsize=10;0
+font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
+font-3 = Font Awesome 5 Brands:pixelsize=10;0
+
+modules-left = bspwm
+modules-right = pacman-packages cpu cpu-temperature memory volume weather battery time
+
+tray-position = right
+tray-padding = 1
+tray-background = ${colors.background-alt}
+tray-offset-x = 0
+tray-offset-y = 0
+tray-scale = 1.0
+
+cursor-click = pointer
+cursor-scroll = default
+
+line-size = 3
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+format-underline =
+format-background =
+format-padding =
+
+[module/filesystem]
+type = internal/fs
+
+; Mountpoints to display
+mount-0 = /home
+
+; Seconds to sleep between updates
+; Default: 30
+interval = 10
+
+; Display fixed precision values
+; Default: false
+fixed-values = true
+
+; Spacing between entries
+; Default: 2
+spacing = 4
+
+; Available tags:
+;   <label-mounted> (default)
+;   <bar-free>
+;   <bar-used>
+;   <ramp-capacity>
+format-mounted = <label-mounted>
+
+; Available tokens:
+;   %mountpoint%
+;   %type%
+;   %fsname%
+;   %percentage_free%
+;   %percentage_used%
+;   %total%
+;   %free%
+;   %used%
+; Default: %mountpoint% %percentage_free%%
+label-mounted = 💽 %free%
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+enable-click = true
+enable-scroll = false
+wrapping-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-background = #e60053
+
+label-focused = %name%
+label-focused-background = ${colors.background-wm}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 1
+
+label-unfocused = %name%
+label-unfocused-foreground = #cccccccc
+label-unfocused-padding = 1
+
+label-visible = %name%
+label-visible-foreground = #cccccccc
+label-visible-padding = 1
+
+label-urgent = %index% %name%
+label-urgent-foreground = #ffffff
+label-urgent-background = #bd2c40
+label-urgent-padding = 1
+
+format-underline =
+format-background =
+format-padding =
+
+label-separator = |
+
+[module/pacman-packages]
+type = custom/ipc
+hook-0 = sudo pacman -Qu | wc -l
+format-prefix = "📦 "
+click-left = updatepackages
+initial = 1
+
+[module/memory]
+type = custom/script
+exec = i3memory
+label = "%output%"
+click-left = alacritty -e htop &
+interval = 10
+format-prefix = "🧠 "
+
+[module/cpu-usage]
+type = custom/script
+exec = polycpu
+label = "%output%"
+click-left = alacritty -e htop &
+interval = 10
+format-prefix = "💻 "
+
+
+[module/cpu-temperature]
+type = internal/temperature
+interval = 2
+thermal-zone = 0
+warn-temperature = 60
+format = <label>
+format-warn = <label-warn>
+label = 🔥 %temperature-c%
+label-warn = 🔥 %temperature-c%
+label-warn-foreground = #f00
+
+[module/weather]
+type = custom/script
+exec = i3weather
+label = "%output%"
+click-left = alacritty -e w3m wttr.in/Adelaide &
+interval = 1800
+
+[module/time]
+type = custom/script
+exec = date '+%d/%m/%Y %H:%M:%S'
+label = "%output%"
+interval = 1
+
+[module/volume]
+
+type = internal/pulseaudio
+sink = @DEFAULT_SINK@
+use-ui-max = true
+interval = 5
+format-volume = <ramp-volume> <label-volume>
+;format-muted = <label-muted>
+;label-volume = %percentage%%
+label-muted = 🔇 Muted
+label-muted-foreground = #666
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = true
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = #44
+
+[module/cpu]
+type = internal/cpu
+interval = 10
+label = 💻 %percentage%%
+
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT1
+adapter = ACAD
+poll-interval = 5
+time-format = %H:%M
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+label-charging =  %{F#99}  %{F-} %percentage%%
+label-discharging = %{F#99} %time% %{F-}%percentage%%
+label-full = %percentage%%
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+bar-capacity-width = 10
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-framerate = 750
+
+[module/bspwm]
+type = internal/bspwm
+
+enable-scroll = true
+label-focused = %name%
+label-focused-background = ${colors.background-wm}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 1
+
+label-occupied = %name%
+label-occupied-padding = 1
+
+label-urgent = %name%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+
+format-underline =
+format-background =
+format-padding =
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+label-separator = |
