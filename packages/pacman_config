@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo rm /etc/pacman.conf
+
+sudo ln -sf $HOME/.dotfiles/packages/pacman.conf /etc/pacman.conf
