@@ -2,7 +2,7 @@
 
 # Launch Terminal Emulator
 super + Return
-    termite
+    $TERMINAL
 
 # Launch Rofi Program Launcher
 super + @space
