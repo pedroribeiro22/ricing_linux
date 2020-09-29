@@ -19,7 +19,7 @@ echo "Installing Dunst nofication manager configurations..."
 
 [ -d $HOME/.config/dunst ] && rm -rf $HOME/.config/dunst
 mkdir -p $HOME/.config/dunst
-ln -sfT $HOME/.dotfiles/config/dunstrc $HOME/.config/dunst/dunstrc
+ln -sf $HOME/.dotfiles/config/dunstrc $HOME/.config/dunst/dunstrc
 cp $HOME/.dotfiles/config/dunst/normal.png $HOME/.config/dunst/normal.png
 cp $HOME/.dotfiles/config/dunst/critical.png $HOME/.config/dunst/critical.png
 
