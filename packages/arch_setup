@@ -6,7 +6,6 @@ export ARCH_SETUP=(
     xorg-xinit
     nitrogen
     picom
-    firefox-developer-edition
     network-manager-applet
 )
 
