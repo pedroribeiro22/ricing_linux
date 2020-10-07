@@ -8,8 +8,9 @@ nm-applet &
 sxhkd &
 xrdb -merge ~/.Xresources &
 picom --config /home/pedro/.config/picom.conf &
-nitrogen --set-zoom-fill /home/pedro/.dotfiles/wallpapers/78511589_p0.jpg &
+nitrogen --restore &
 flameshot &
+xrandr --output HDMI-0 --off &
 launchpolybar &
 
 MONITOR=eDP-1
