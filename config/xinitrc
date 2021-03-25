@@ -1,5 +1,6 @@
 setxkbmap pt &
 dunst &
-xrbd -merge ~/.Xresources
+xrbd -merge ~/.Xresources &
 sxhkd &
+wmname LG3D &
 exec bspwm
