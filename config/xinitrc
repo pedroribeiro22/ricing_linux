@@ -1,5 +1,6 @@
 setxkbmap pt &
 dunst &
+xsetroot -cursor_name left_ptr &
 xrbd -merge ~/.Xresources &
 sxhkd &
 wmname LG3D &

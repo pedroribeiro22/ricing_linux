@@ -1,7 +1,7 @@
-golang 1.11.5
+golang 1.15.8
 haskell 9.0.1
 java openjdk-15
-julia 1.1.0
+julia nightly
 nodejs 14.16.0
 python 3.9.1
 ruby 2.7.2
