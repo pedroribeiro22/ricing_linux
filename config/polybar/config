@@ -48,7 +48,7 @@ foreground = ${colors.foreground}
 module-margin-left = 0
 module-margin-right = 1
 
-font-0 = JetbrainsMono Nerd Font:pixelsize=10;
+font-0 = Sauce Code Pro Nerd Font:pixelsize=10;
 font-1 = Font Awesome 5 Free:pixelsize=10;0
 font-2 = NotoColorEmoji:fontformat=truetype:scale=2:antialias=false;
 font-3 = Font Awesome 5 Brands:pixelsize=10;0
