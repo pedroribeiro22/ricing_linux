@@ -83,6 +83,7 @@ Plug 'rakr/vim-one'
 Plug 'kaicataldo/material.vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'doums/darcula'
+Plug 'morhetz/gruvbox'
 
 """ Languages
 

@@ -1,10 +1,10 @@
 [colors]
-background = #1d1f21
+background = #282828
 background-wm = #444444
 background-alt = #2D2D2D
 foreground = #D8DEE9
 foreground-alt = #555555
-primary = #268BD2
+primary = #d65d0e
 alert = #ED0B0B
 
 [settings]
@@ -48,7 +48,7 @@ foreground = ${colors.foreground}
 module-margin-left = 0
 module-margin-right = 1
 
-font-0 = JetbrainsMono Nerd Font:pixelsize=10;
+font-0 = Fira Code Nerd Font:pixelsize=10;
 font-1 = Font Awesome 5 Free:pixelsize=10;0
 font-2 = NotoColorEmoji:fontformat=truetype:scale=2:antialias=false;
 font-3 = Font Awesome 5 Brands:pixelsize=10;0

@@ -6,4 +6,4 @@ rofi.display-window: Window
 rofi.display-drun:   Search
 rofi.show-icons:     true
 rofi.lines:          10
-rofi.font:           JetBrains Mono Nerd Font Medium 12
+rofi.font:           Fira Code Nerd Font Medium 12
