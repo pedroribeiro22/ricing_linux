@@ -3,7 +3,7 @@ export ZSH=~/.oh-my-zsh
 export TERM="xterm-256color"
 
 POWERLEVEL9K_MODE='awesome-fontconfig'
-ZSH_THEME="spaceship"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 source $ZSH/oh-my-zsh.sh
 
 SPACESHIP_PROMPT_ADD_NEWLINE=false
