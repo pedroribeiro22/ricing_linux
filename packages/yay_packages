@@ -7,8 +7,9 @@ export YAY_PACKAGES=(
     catdoc
     ctags
     diffpdf
-    discord
+    discord_arch_electron
     docker
+    docker-compose
     direnv
     dunst
     exa
@@ -43,6 +44,7 @@ export YAY_PACKAGES=(
     watchexec
     wget
     wmctrl
+    xcompmgr
     zathura-pdf-mupdf
 )
 

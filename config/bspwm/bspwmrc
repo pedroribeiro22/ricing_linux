@@ -7,7 +7,7 @@ bspc rule -r "*"
 nm-applet &
 sxhkd &
 xrdb -merge ~/.Xresources &
-picom --config /home/pedro/.config/picom.conf &
+xcompmgr -n &
 nitrogen --restore &
 flameshot &
 xrandr --output HDMI-0 --off &
@@ -15,7 +15,7 @@ launchpolybar &
 
 MONITOR=eDP-1
 
-# bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9
+bspc monitor DP-4 -d 1 2 3 4 5 6 7 8 9
 
 function twoMonitorsDesktop {
     bspc monitor DP-4 -d 1 2 3 4 5 6 7 8 9
@@ -44,19 +44,19 @@ function HDMI0Connected {
     ! xrandr | grep "^HDMI-0" | grep disconnected
 }
 
-if HDMI1Connected
-then
-    workspacesArrayConnected
-fi
+# if HDMI1Connected
+# then
+#     workspacesArrayConnected
+# fi
 
-if ! HDMI1Connected
-then
-    workspacesArrayDisconnected
-fi
-if HDMI0Connected
-then
-    twoMonitorsDesktop
-fi
+# if ! HDMI1Connected
+# then
+#     workspacesArrayDisconnected
+# fi
+# if HDMI0Connected
+# then
+#     twoMonitorsDesktop
+# fi
 
 
 # Global Settings

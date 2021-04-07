@@ -50,11 +50,11 @@ module-margin-right = 1
 
 font-0 = JetBrains Mono Nerd Font:pixelsize=10;
 font-1 = Font Awesome 5 Free:pixelsize=10;0
-font-2 = NotoColorEmoji:fontformat=truetype:scale=2:antialias=false;
+font-2 = NotoColorEmoji:fontformat=truetype:scale=10:antialias=false;
 font-3 = Font Awesome 5 Brands:pixelsize=10;0
 
 modules-left = bspwm
-modules-right = pacman-packages cpu cpu-temperature memory volume weather battery time
+modules-right = cpu-temperature memory volume weather battery time
 
 tray-position = right
 tray-padding = 1
@@ -196,7 +196,7 @@ interval = 1800
 
 [module/time]
 type = custom/script
-exec = date '+%d/%m/%Y %H:%M:%S'
+exec = date '+%d/%m/%Y %H:%M'
 label = "%output%"
 interval = 1
 

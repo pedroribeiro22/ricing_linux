@@ -6,3 +6,5 @@ nodejs 14.16.0
 python 3.9.1
 ruby 2.7.2
 rust nightly
+erlang 23.3
+elixir 1.11.0

@@ -1,12 +1,12 @@
 #!/bin/env sh
 
 # Installs all the necessary packages
-./packages/arch_setup
-./packages/install_yay
-./packages/yay_packages
+#./packages/arch_setup
+#./packages/install_yay
+#./packages/yay_packages
 
-# Installs all the necessary fonts
-./fonts/install
+	# Installs all the necessary fonts
+#./fonts/install
 
 # Install all the customized scripts
 ./scripts/install
