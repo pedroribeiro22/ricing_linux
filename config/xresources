@@ -6,7 +6,7 @@ URxvt.perl-ext-common:resize-font
 URxvt.keysym.C-minus:resize-font:smaller
 URxvt.keysym.C-equal:resize-font:bigger
 URxvt.keysym.C-0:resize-font:reset
-Xcursor.theme:macOSBigSur
+Xcursor.theme:Adwaita
 Xcursor.size:18
 
 ! special

@@ -15,7 +15,7 @@ launchpolybar &
 
 MONITOR=eDP-1
 
-bspc monitor DP-4 -d 1 2 3 4 5 6 7 8 9
+bspc monitor DP-4 -d '1  ' '2  ' '3  ' '4  ' '5  ' '6  ' '7  ' '8  ' '9  '
 
 function twoMonitorsDesktop {
     bspc monitor DP-4 -d 1 2 3 4 5 6 7 8 9
