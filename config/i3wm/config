@@ -56,7 +56,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Shift+c reload
 
 # terminal transparency
-exec_always --no-startup-id picom --config /home/pedro/.config/picom.conf
+# exec_always --no-startup-id picom --config /home/pedro/.config/picom.conf
+exec_always --no-startup-id xcompgr -n
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart; exec "~/.dotfiles/utilities/downloads_tidier"
@@ -184,16 +185,16 @@ bindsym $mod+p exec killall polybar
 ###############################################################################
 
 # Workspace names
-set $ws1   "1"
-set $ws2   "2"
-set $ws3   "3"
-set $ws4   "4"
-set $ws5   "5"
-set $ws6   "6"
-set $ws7   "7"
-set $ws8   "8"
-set $ws9   "9"
-set $ws10  "10"
+set $ws1   "1  "
+set $ws2   "2  "
+set $ws3   "3  "
+set $ws4   "4  "
+set $ws5   "5  "
+set $ws6   "6  "
+set $ws7   "7  "
+set $ws8   "8  "
+set $ws9   "9  "
+set $ws10  "10  "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1

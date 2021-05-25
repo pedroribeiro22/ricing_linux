@@ -2,6 +2,6 @@ setxkbmap pt &
 dunst &
 xsetroot -cursor_name left_ptr &
 xrbd -merge ~/.Xresources &
-sxhkd &
+/* sxhkd & */
 wmname LG3D &
-exec bspwm
+exec i3
