@@ -362,7 +362,7 @@ label-mode-background = #e60053
 ;   %output%
 ; Default: %icon%  %name%
 label-focused = %name%
-label-focused-foreground = #ffffff
+label-focused-foreground = #268bd2
 label-focused-padding = 2
 
 ; Available tokens:
@@ -391,9 +391,9 @@ label-visible-padding = 2
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-urgent = %index% %name%
-label-urgent-foreground = #ffffff
-label-urgent-background = #bd2c40
+label-urgent = %name%
+label-urgent-foreground = #bd2c40
+# label-urgent-background = #bd2c40
 label-urgent-padding = 4
 
 ; Separator in between workspaces
