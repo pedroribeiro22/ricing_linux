@@ -27,8 +27,9 @@ set listchars+=nbsp:•
 
 
 " Theme
-syntax enable
-colorscheme codedark
+" syntax enable
+" colorscheme codedark
+source ~/.dotfiles/config/nvim/themes/one.vim
 
 " Fuzzy finder
 let g:fzf_colors = {
