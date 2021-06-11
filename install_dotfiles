@@ -6,7 +6,7 @@
 ./packages/yay_packages
 
 # Installs all the necessary fonts
-#./fonts/install
+./fonts/install
 
 # Install all the customized scripts
 ./scripts/install
